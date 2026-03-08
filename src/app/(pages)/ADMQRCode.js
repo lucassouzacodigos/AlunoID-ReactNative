@@ -1,5 +1,5 @@
-import { Stack, useRouter } from "expo-router";
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Stack } from "expo-router";
+import { ScrollView, Text, TextInput, TouchableOpacity, View, Dimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { css } from "../../Components/Styles";
 import Botao from "../../Components/botao"
@@ -8,15 +8,17 @@ import Header from "../../Components/header"
 import ItemBlock from "../../Components/itemBlock"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import decodeToken from "../../utils/tokenToJson";
+import QRCode from "react-native-qrcode-svg";
 
 
 
 
 
-export default function home(){
-    const router = useRouter()
+export default function ADMQRCode(){
+    
+    const larguraTela = Dimensions.get("window").width
     const [token, setToken] = useState("")
-
+    const [qrCodeEntrada, setQrCodeEntrada] = useState("Aluno2123TESTE")
 
 
     useEffect(() => {
@@ -50,21 +52,17 @@ export default function home(){
                     </ItemBlock>
                         
                     <ItemBlock>
-                        <Text>CCC</Text>
-                        <Text>DDD</Text>
-                        <Text>ccc</Text>
-                        <Text>ccc</Text>
-                        <Text>dd124124</Text>
+                        <Text>{larguraTela.width}</Text>
                     </ItemBlock>
 
-                    <ItemBlock/>
-                    <ItemBlock/>
-                    <ItemBlock/>
+                    <ItemBlock>
+                        <QRCode value={qrCodeEntrada} size={larguraTela * 0.8} />
+                    </ItemBlock>
+
+                   
 
                     <Text>{token.userID}</Text>
                     <Text>{token.nome}</Text>
-                    <Botao text="ADM qr code" cor="lightblue" largura={120} acao={() => router.push("/ADMQRCode")}></Botao>
-                    <Botao text="Exibir token" cor="lightblue" largura={120} acao={() => console.log("botao clicado")}></Botao>
                     
                 </ScrollView>
 

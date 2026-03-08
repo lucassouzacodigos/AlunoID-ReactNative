@@ -10,12 +10,12 @@ import { css } from "../Components/Styles"
 export default function Botao(props){
     return(
         <TouchableOpacity 
-        style={[css.botao , css.FlexCenter, {width: props.largura, backgroundColor: props.cor, elevation: 5}]}
+        style={[css.botao , css.FlexCenter, {borderRadius:props.borderRadius? props.borderRadius : 15, width: props.largura, backgroundColor: props.cor, elevation: 5, marginVertical:10, height:props.height? props.height : 35}]}
         onPress={props.acao}
         >
         
 
-            <Text>{props.text}</Text>
+            <Text style={{fontWeight: props.fontWeight? props.fontWeight : "normal", fontSize: props.fontSize? props.fontSize : 16}}>{props.text}</Text>
         </TouchableOpacity>
     )
 }

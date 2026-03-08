@@ -30,10 +30,14 @@ export const css = StyleSheet.create({
     },
     botao:{
         fontWeight: "bold",
-        height: 30,
+        height: 35,
         backgroundColor: "#f5f5f5",
         borderRadius: 15,
         borderWidth: 2,
         borderColor: "rgba(53, 53, 53, 1)00ff"
     },
+    cameraView: {
+        alignItems: "center",
+        justifyContent: "flex-end",
+    }
 })

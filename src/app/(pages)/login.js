@@ -83,7 +83,8 @@ export default function login(){
                 />
 
                 <Botao text="Entrar" largura="120" acao={tentarLogar} cor="green" />
-                <Botao text="Qrcode" largura="120" acao={() => router.push("/qrCodeDisplay")} cor="green" />
+                <Botao text="Qrcode" largura="120" acao={() => router.push("/leitorFacial")} cor="green" />
+                <Botao text="Leitor" largura="120" acao={() => router.push("/leitorQrCode")} cor="green" />
 
                 <Text>Usuario: {user}</Text>
                 <Text>Senha: {senha}</Text>

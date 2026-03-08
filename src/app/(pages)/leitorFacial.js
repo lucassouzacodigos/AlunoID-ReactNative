@@ -1,5 +1,5 @@
 import { Stack, useRouter } from "expo-router";
-import { ScrollView, Text, TextInput, TouchableOpacity, View, Image } from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View, Image, Dimensions, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { css } from "../../Components/Styles";
 import Botao from "../../Components/botao"
@@ -10,17 +10,14 @@ import decodeToken from "../../utils/tokenToJson";
 
 
 
-export default function qrCodeDisplay(){
+export default function leitorFacial(){
 
-
-
-
-
-
-
+    const router = useRouter()
+    const larguraTela = Dimensions.get("window").width     
+    const alturaTela = Dimensions.get("window").height     
     const [token, setToken] = useState("")
     const [permission, requestPermission] = useCameraPermissions()
-    const [cameraOpen, setCameraOpen] = useState(false)
+    const [cameraOpen, setCameraOpen] = useState(true)
     const cameraRef = useRef()
     const [fotoUri, setFotoUri] = useState("")
     const [isUser, setIsUser] = useState(false)
@@ -43,6 +40,8 @@ export default function qrCodeDisplay(){
             base64: true
         })
         setFotoUri(foto.uri)
+        setCameraOpen(false)
+
 
         const response = await fetch(`http://${IP}:3333/facial/comparar`, {
             method: 'POST',
@@ -54,13 +53,16 @@ export default function qrCodeDisplay(){
             })
         })
         const data = await response.json()
-
         //Só entra nesse if se o reconhecimento for TRUE
         if (data.match) {
-            alert(token.nome + " Reconhecido")
-        } else alert("não é a mesma pessoa")
-
-        
+            alert(`Bem vindo ${token.nome}`)
+            router.push("/home")
+        } 
+        //Entra nesse else caso nao seja a mesma pessoa logada
+        else {
+            alert("não é a mesma pessoa")
+            setCameraOpen(true)
+        }
         setCarregando(false)
     }
 
@@ -81,7 +83,6 @@ export default function qrCodeDisplay(){
 
     //caso tenha permissao de ver a camera
     return(
-    
             <SafeAreaView style={[css.safeArea, css.FlexCenter]}>
                 <Stack.Screen options={{headerShown: false}} />
     
@@ -89,22 +90,37 @@ export default function qrCodeDisplay(){
     
 
     
-                    <Botao text="Abrir Camera" largura={120} cor="lightblue" acao={() => setCameraOpen(cur => !cur)} />
-                    <Botao text="Tirar Foto" largura={190} cor="lightblue" acao={tirarFoto} />
                     <Text>{token.userID}</Text>
                     <Text>{token.nome}</Text>
 
 
-                    { cameraOpen && 
-                        <CameraView ref={cameraRef} style={{width:150, height:150}} facing="front"/>
+                    { cameraOpen &&
+                    <View>
+                        <CameraView  ref={cameraRef} style={[css.cameraView, {width:larguraTela * 0.7, height:350, borderRadius: 15}]} facing="front" /> 
+
+                        <Botao text="Leitura Facial" 
+                        fontWeight="bold" 
+                        fontSize={30} 
+                        largura={larguraTela * 0.6} 
+                        height={70} 
+                        borderRadius={15} 
+                        cor="lightblue" 
+                        acao={tirarFoto} />
+                    </View>
                     }
 
-                    {carregando && <Text>Carregando...</Text>}
+                    {carregando && 
+                        <View>
+                            <Text>Carregando...</Text>
+                            <ActivityIndicator size="large" color="blue" />
+                        </View>
+                    }
     
     
                 </View>
     
             </SafeAreaView>
+            
         )
 }
 
