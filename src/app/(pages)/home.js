@@ -1,5 +1,5 @@
 import { Stack, useRouter } from "expo-router";
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { css } from "../../Components/Styles";
 import Botao from "../../Components/botao"
@@ -8,6 +8,9 @@ import Header from "../../Components/header"
 import ItemBlock from "../../Components/itemBlock"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import decodeToken from "../../utils/tokenToJson";
+import leitorQR from '../../assets/leitorQR.png'
+import qrCodeExemplo from '../../assets/qrCodeExemplo.png'
+import { LinearGradient } from "expo-linear-gradient";
 
 
 
@@ -41,30 +44,45 @@ export default function home(){
                 
                 <ScrollView style={{width:"100%", backgroundColor:"transparent"}} contentContainerStyle={{alignItems:"center", marginTop:10}}>
 
-                    <ItemBlock>
-                        <View style={{backgroundColor:"pink"}}>
-                            <Text>aaa</Text>
-                            <Text>bbb</Text>
-                            <Text>ccc</Text>
+                    {/* DISPLAY DO QR CODE USADO PARA REDIRECIONAR PARA O MODULO DE RECONHECIMENTO FACIAL ---apenas para adm do sistema---*/}
+                    {token.tipo_usuario === "Admin" &&
+                    <ItemBlock acao={() => router.push("/ADMQRCode")}>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={qrCodeExemplo} style={{height:"90%", width:"90%", backgroundColor:"aa"}} />
+                            </View>
+
+                            <View  style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>QR Code</Text>
+                                <Text style={css.textoAzul}>Controle</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
+                        </View>
+                        {/* <View style={{backgroundColor: "#3DC2FF", width:"100%", height:"50%", position:"absolute", bottom:0, borderBottomLeftRadius:5, borderBottomRightRadius:5, opacity:0.5}}></View> */}
+                        <LinearGradient colors={['transparent', '#3DC2FF']} style={{position:"absolute", bottom:0, width:"100%", height:"50%", borderBottomLeftRadius:5, borderBottomRightRadius:5}}></LinearGradient>
+                    </ItemBlock>}
+
+                    {/* BOTAO REDIRECIONA PRO LEITOR DE QR */}
+                    <ItemBlock acao={() => router.push("/leitorQrCode")}>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={leitorQR} style={{height:"90%", width:"90%", backgroundColor:"aa"}} />
+                            </View>
+
+                            <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>Leitor</Text>
+                                <Text style={css.textoAzul}>QR Code</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
                         </View>
                     </ItemBlock>
-                        
-                    <ItemBlock>
-                        <Text>CCC</Text>
-                        <Text>DDD</Text>
-                        <Text>ccc</Text>
-                        <Text>ccc</Text>
-                        <Text>dd124124</Text>
-                    </ItemBlock>
 
-                    <ItemBlock/>
-                    <ItemBlock/>
-                    <ItemBlock/>
 
-                    <Text>{token.userID}</Text>
-                    <Text>{token.nome}</Text>
-                    <Botao text="ADM qr code" cor="lightblue" largura={120} acao={() => router.push("/ADMQRCode")}></Botao>
-                    <Botao text="Exibir token" cor="lightblue" largura={120} acao={() => console.log("botao clicado")}></Botao>
+
+                    <Botao acao={() => router.push("/leitorQrCode")} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => console.log(token)} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
                     
                 </ScrollView>
 

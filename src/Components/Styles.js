@@ -39,5 +39,15 @@ export const css = StyleSheet.create({
     cameraView: {
         alignItems: "center",
         justifyContent: "flex-end",
+    },
+    textoAzul:{
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "lightblue",
+    },
+    textoAcessar:{
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "black",
     }
 })

@@ -18,7 +18,7 @@ export default function ADMQRCode(){
     
     const larguraTela = Dimensions.get("window").width
     const [token, setToken] = useState("")
-    const [qrCodeEntrada, setQrCodeEntrada] = useState("Aluno2123TESTE")
+    const [qrCodeEntrada, setQrCodeEntrada] = useState("ALUNOIDFACIALREQUEST")
 
 
     useEffect(() => {
@@ -41,28 +41,23 @@ export default function ADMQRCode(){
             <View style={[css.quadrado, css.FlexCenter, {justifyContent:"start"}]}>
                 <Header></Header>
                 
-                <ScrollView style={{width:"100%", backgroundColor:"transparent"}} contentContainerStyle={{alignItems:"center", marginTop:10}}>
+                <ScrollView style={{width:"100%", backgroundColor:"white"}} contentContainerStyle={{alignItems:"center", justifyContent:"center", marginTop:10}}>
 
                     <ItemBlock>
                         <View style={{backgroundColor:"pink"}}>
-                            <Text>aaa</Text>
-                            <Text>bbb</Text>
-                            <Text>ccc</Text>
+                            
                         </View>
                     </ItemBlock>
-                        
-                    <ItemBlock>
-                        <Text>{larguraTela.width}</Text>
-                    </ItemBlock>
 
                     <ItemBlock>
-                        <QRCode value={qrCodeEntrada} size={larguraTela * 0.8} />
+                        <View style={[css.FlexCenter, {}]}> 
+                            <Text style={[css.textoAcessar, {textAlign:"center", margin:15, fontSize:25}]}>Escaneie o QR Code para ser redirecionado para o reconhecimento facial</Text>
+
+                            <View style={{margin:15, borderRadius:5, borderColor:"black", borderWidth:5}}>
+                                <QRCode value={qrCodeEntrada} size={larguraTela * 0.5} />
+                            </View>
+                        </View>
                     </ItemBlock>
-
-                   
-
-                    <Text>{token.userID}</Text>
-                    <Text>{token.nome}</Text>
                     
                 </ScrollView>
 

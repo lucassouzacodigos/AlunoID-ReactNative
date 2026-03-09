@@ -8,15 +8,15 @@ import { useState } from "react";
 
 
 
-export default function itemBlock({children}){
+export default function itemBlock({children, acao}){
     return (
-        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", width:"90%", height:"auto", flexDirection:"row", justifyContent:"center", elevation:10, borderRadius:5, marginVertical:15}]}>
+        <TouchableOpacity onPress={acao} style={[css.FlexCenter, {backgroundColor:"#F0F0F0", width:"90%", height:"auto", flexDirection:"row", justifyContent:"center", elevation:10, borderRadius:15, marginVertical:15}]}>
             
 
             {children}
             
             
 
-        </View>
+        </TouchableOpacity>
     )
 }
