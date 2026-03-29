@@ -9,6 +9,7 @@ import ItemBlock from "../../Components/itemBlock"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import decodeToken from "../../utils/tokenToJson";
 import leitorQR from '../../assets/leitorQR.png'
+import catraca from '../../assets/catraca.png'
 import qrCodeExemplo from '../../assets/qrCodeExemplo.png'
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -68,7 +69,7 @@ export default function home(){
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
-                                <Image source={leitorQR} style={{height:"90%", width:"90%", backgroundColor:"aa"}} />
+                                <Image source={leitorQR} style={{height:"90%", width:"90%", backgroundColor:"aa" }} resizeMode="contain" />
                             </View>
 
                             <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
@@ -78,6 +79,23 @@ export default function home(){
                             </View>
                         </View>
                     </ItemBlock>
+
+                    <ItemBlock acao={() => router.push("/entradaEsaida")}>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={catraca} style={{height:"75%", width:"75%", backgroundColor:"aa"}} resizeMode="contain" />
+                            </View>
+
+                            <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>Registros</Text>
+                                <Text style={css.textoAzul}>Entrada e Saida</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
+                        </View>
+                    </ItemBlock>
+
+                    
 
 
 

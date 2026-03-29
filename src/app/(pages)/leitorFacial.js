@@ -55,7 +55,8 @@ export default function leitorFacial(){
         const data = await response.json()
         //Só entra nesse if se o reconhecimento for TRUE
         if (data.match) {
-            alert(`Bem vindo ${token.nome}`)
+            alert(`Rosto identificado, passagem liberada para: ${token.nome}`)
+            setCameraOpen(false)
             router.push("/home")
         } 
         //Entra nesse else caso nao seja a mesma pessoa logada
