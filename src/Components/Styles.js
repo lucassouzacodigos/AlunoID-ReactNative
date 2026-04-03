@@ -23,10 +23,23 @@ export const css = StyleSheet.create({
     },
     input:{
         textAlign: "center",
-        width: "80%",
+        width: "100%",
+        // backgroundColor:"pink",
+        marginBottom:0,
+    },
+    inputIcons:{
+        position:"absolute",
+        right:0,
+        height:40,
+        width:40,
+    },
+    loginInputContainer:{
+        height:"auto",
+        width:"65%",
         borderBottomWidth: 1,
         borderColor: "black",
-        margin: 13,
+        // backgroundColor:"teal",
+        marginBottom:25,
     },
     botao:{
         fontWeight: "bold",
@@ -49,5 +62,9 @@ export const css = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
         color: "black",
-    }
+    },
+    altoRelevo:{
+        fontSize: 20,
+        fontWeight: "bold",
+    },
 })

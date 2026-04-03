@@ -41,7 +41,7 @@ export default function home(){
 
             
             <View style={[css.quadrado, css.FlexCenter, {justifyContent:"start"}]}>
-                <Header></Header>
+                <Header token={token}></Header>
                 
                 <ScrollView style={{width:"100%", backgroundColor:"transparent"}} contentContainerStyle={{alignItems:"center", marginTop:10}}>
 
@@ -80,7 +80,7 @@ export default function home(){
                         </View>
                     </ItemBlock>
 
-                    <ItemBlock acao={() => router.push("/entradaEsaida")}>
+                    <ItemBlock acao={() => router.push("/entrada_saida")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -95,12 +95,18 @@ export default function home(){
                         </View>
                     </ItemBlock>
 
+                    <ItemBlock acao={() => router.push("perfil")}>
+                        <View style={{height:150}}>
+                            <Text>PeRFIL</Text>
+                        </View>
+                    </ItemBlock>
+
                     
 
 
 
                     <Botao acao={() => router.push("/leitorQrCode")} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => console.log(token)} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
                     
                 </ScrollView>
 
