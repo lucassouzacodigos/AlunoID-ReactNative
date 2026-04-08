@@ -9,6 +9,7 @@ import ItemBlock from "../../Components/itemBlock"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import decodeToken from "../../utils/tokenToJson";
 import leitorQR from '../../assets/leitorQR.png'
+import perfilIcon from '../../assets/iconeperfil.png'
 import catraca from '../../assets/catraca.png'
 import qrCodeExemplo from '../../assets/qrCodeExemplo.png'
 import { LinearGradient } from "expo-linear-gradient";
@@ -95,9 +96,20 @@ export default function home(){
                         </View>
                     </ItemBlock>
 
+
+                    {/* BLOCO PERFIL */}
                     <ItemBlock acao={() => router.push("perfil")}>
-                        <View style={{height:150}}>
-                            <Text>PeRFIL</Text>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={perfilIcon} style={{height:"75%", width:"75%", backgroundColor:"aa"}} resizeMode="contain" />
+                            </View>
+
+                            <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>Acesse seu</Text>
+                                <Text style={css.textoAzul}>Pefil de usuario</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
                         </View>
                     </ItemBlock>
 

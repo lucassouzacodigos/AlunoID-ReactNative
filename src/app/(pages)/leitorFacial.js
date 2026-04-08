@@ -17,7 +17,7 @@ export default function leitorFacial(){
     const alturaTela = Dimensions.get("window").height     
     const [token, setToken] = useState("")
     const [permission, requestPermission] = useCameraPermissions()
-    const [cameraOpen, setCameraOpen] = useState(true)
+    const [cameraOpen, setCameraOpen] = useState(false)
     const cameraRef = useRef()
     const [fotoUri, setFotoUri] = useState("")
     const [isUser, setIsUser] = useState(false)
@@ -29,6 +29,10 @@ export default function leitorFacial(){
         setToken(decoded)
     }
     loadToken()
+
+    setTimeout(() => {
+        setCameraOpen(true)
+    }, 1500);
 }, [])
     const tirarFoto = async () =>{
 
