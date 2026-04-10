@@ -66,7 +66,7 @@ export default function home(){
                     </ItemBlock>}
 
                     {/* BOTAO REDIRECIONA PRO LEITOR DE QR */}
-                    <ItemBlock acao={() => router.push("/leitorQrCode")}>
+                    <ItemBlock acao={() => router.push("/leitorFacial")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -81,6 +81,7 @@ export default function home(){
                         </View>
                     </ItemBlock>
 
+                        {/* ENTRADA E SAIDA */}
                     <ItemBlock acao={() => router.push("/entrada_saida")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
@@ -118,6 +119,20 @@ export default function home(){
 
 
                     <Botao acao={() => router.push("/leitorQrCode")} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
                     <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
                     
                 </ScrollView>

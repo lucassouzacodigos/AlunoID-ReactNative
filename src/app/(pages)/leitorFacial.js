@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import {IP} from "../../Components/IPLOCAL";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import decodeToken from "../../utils/tokenToJson";
+import cameraIcon from '../../assets/cameraIcon.png'
 
 
 
@@ -31,7 +32,9 @@ export default function leitorFacial(){
     loadToken()
 
     setTimeout(() => {
-        setCameraOpen(true)
+        if(cameraOpen == false){
+            setCameraOpen(true)
+        }
     }, 1500);
 }, [])
     const tirarFoto = async () =>{
@@ -71,6 +74,11 @@ export default function leitorFacial(){
         setCarregando(false)
     }
 
+    const debug = () => {
+        setCameraOpen((cur) => !cur)
+        setCarregando((cur) => !cur)
+    }
+
 
 
     //caso nao tenho permissao da camera
@@ -88,29 +96,28 @@ export default function leitorFacial(){
 
     //caso tenha permissao de ver a camera
     return(
-            <SafeAreaView style={[css.safeArea, css.FlexCenter]}>
-                <Stack.Screen options={{headerShown: false}} />
+            <SafeAreaView style={[css.safeArea, css.FlexCenter]} edges={["bottom"]}>
+                <Stack.Screen options={{headerShown: false}}  />
     
-                <View style={[css.quadrado,css.FlexCenter]}> 
+                <View style={[css.quadrado,css.FlexCenter, {}]}> 
     
 
     
-                    <Text>{token.userID}</Text>
-                    <Text>{token.nome}</Text>
+                    {/* <Text>{token.userID}</Text> */}
 
 
                     { cameraOpen &&
-                    <View>
-                        <CameraView  ref={cameraRef} style={[css.cameraView, {width:larguraTela * 0.7, height:350, borderRadius: 15}]} facing="front" /> 
+                    <View style={{justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontWeight:"bold", fontSize:15}}>Reconhecimento facial para: {token.nome}</Text>
+                        <CameraView  ref={cameraRef} style={[css.cameraView, {width:larguraTela * 0.5, height:500, borderRadius: 5}]} facing="front">
+                            
+                            <View style={{borderColor:"white", borderWidth:2, padding:10, borderRadius:200, alignItems:"center", justifyContent:"center"}}>
+                                <Image style={{height:75, width:75}} source={cameraIcon}></Image>
+                            </View>
 
-                        <Botao text="Leitura Facial" 
-                        fontWeight="bold" 
-                        fontSize={30} 
-                        largura={larguraTela * 0.6} 
-                        height={70} 
-                        borderRadius={15} 
-                        cor="lightblue" 
-                        acao={tirarFoto} />
+                        </CameraView> 
+
+                        
                     </View>
                     }
 

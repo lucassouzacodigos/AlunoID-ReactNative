@@ -25,7 +25,7 @@ export default function login(){
     
     const [debug, setDebug] = useState(false)
     const router = useRouter()
-    const [user, setUser] = useState('2') 
+    const [user, setUser] = useState('1') 
     const [senha, setSenha] = useState('123') 
     const [erroLogin, setErroLogin] = useState(false)
     const [loading, setLoading] = useState(false)
