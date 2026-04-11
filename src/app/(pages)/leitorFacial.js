@@ -82,7 +82,7 @@ export default function leitorFacial(){
         //Entra nesse else caso nao seja a mesma pessoa logada
         else {
             alert("não é a mesma pessoa")
-            setCameraOpen(true)
+            router.push("/home")
         }
         setCarregando(false)
     }

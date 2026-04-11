@@ -49,7 +49,6 @@ export default function login(){
                 senha: senha
             })
         })
-        console.log(response)
         
         if (!response.ok){
             setErroLogin(true)

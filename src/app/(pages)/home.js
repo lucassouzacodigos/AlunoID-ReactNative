@@ -13,6 +13,7 @@ import perfilIcon from '../../assets/iconeperfil.png'
 import catraca from '../../assets/catraca.png'
 import anotacoesIcon from '../../assets/anotacoes.png'
 import qrCodeExemplo from '../../assets/qrCodeExemplo.png'
+import horarioIcon from '../../assets/horarios.png'
 import { LinearGradient } from "expo-linear-gradient";
 
 
@@ -124,12 +125,30 @@ export default function home(){
                             </View>
 
                             <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
-                                <Text style={css.textoAzul}>Acesse sua</Text>
-                                <Text style={css.textoAzul}>Pagina de anotações</Text>
+                                <Text style={css.textoAzul}>Acesse suas</Text>
+                                <Text style={css.textoAzul}>anotações</Text>
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>
                     </ItemBlock>
+
+                    {/* BOLOCO HORARIOS */}
+                    <ItemBlock acao={() => router.push("Horarios")}>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={horarioIcon} style={{height:"75%", width:"75%", backgroundColor:"aa"}} resizeMode="contain" />
+                            </View>
+
+                            <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>Verifique seus</Text>
+                                <Text style={css.textoAzul}>horários</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
+                        </View>
+                    </ItemBlock>
+
+
 
                     
 
