@@ -11,6 +11,7 @@ import decodeToken from "../../utils/tokenToJson";
 import leitorQR from '../../assets/leitorQR.png'
 import perfilIcon from '../../assets/iconeperfil.png'
 import catraca from '../../assets/catraca.png'
+import anotacoesIcon from '../../assets/anotacoes.png'
 import qrCodeExemplo from '../../assets/qrCodeExemplo.png'
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -82,7 +83,7 @@ export default function home(){
                     </ItemBlock>
 
                         {/* ENTRADA E SAIDA */}
-                    <ItemBlock acao={() => router.push("/entrada_saida")}>
+                    {/* <ItemBlock acao={() => router.push("/entrada_saida")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -95,11 +96,11 @@ export default function home(){
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>
-                    </ItemBlock>
+                    </ItemBlock> */}
 
 
                     {/* BLOCO PERFIL */}
-                    <ItemBlock acao={() => router.push("perfil")}>
+                    {/* <ItemBlock acao={() => router.push("perfil")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -109,6 +110,22 @@ export default function home(){
                             <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
                                 <Text style={css.textoAzul}>Acesse seu</Text>
                                 <Text style={css.textoAzul}>Pefil de usuario</Text>
+                                <Text style={css.textoAcessar}>Clique para acessar</Text>
+                            </View>
+                        </View>
+                    </ItemBlock> */}
+
+                    {/* BOLOCO ANOTACOES */}
+                    <ItemBlock acao={() => router.push("Anotacoes")}>
+                        <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
+                            
+                            <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
+                                <Image source={anotacoesIcon} style={{height:"75%", width:"75%", backgroundColor:"aa"}} resizeMode="contain" />
+                            </View>
+
+                            <View style={[css.FlexCenter, {height:"auto", backgroundColor:"aa", width:"60%", alignItems:"center", flexDirection:"column", justifyContent:"center"}]}>
+                                <Text style={css.textoAzul}>Acesse sua</Text>
+                                <Text style={css.textoAzul}>Pagina de anotações</Text>
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>

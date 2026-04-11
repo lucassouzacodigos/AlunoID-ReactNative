@@ -67,4 +67,18 @@ export const css = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
     },
+    notaTab:{
+        elevation:10,
+        height:"auto",
+        margin:10,
+        backgroundColor:"white"
+    },
+    notaTabTitulo:{
+        fontWeight:"bold",
+        fontSize:14
+    },
+    notaTabContent:{
+        fontSize:12,
+
+    },
 })

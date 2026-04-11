@@ -96,10 +96,10 @@ export default function leitorFacial(){
 
     //caso tenha permissao de ver a camera
     return(
-            <SafeAreaView style={[css.safeArea, css.FlexCenter]} edges={["bottom"]}>
+            <SafeAreaView style={[css.safeArea, css.FlexCenter, {backgroundColor:"white"}]} edges={[]} >
                 <Stack.Screen options={{headerShown: false}}  />
     
-                <View style={[css.quadrado,css.FlexCenter, {}]}> 
+                <View style={[css.quadrado,css.FlexCenter, {backgroundColor:"#3DC2FF", height:"100%"}]}> 
     
 
     
@@ -107,13 +107,19 @@ export default function leitorFacial(){
 
 
                     { cameraOpen &&
-                    <View style={{justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontWeight:"bold", fontSize:15}}>Reconhecimento facial para: {token.nome}</Text>
-                        <CameraView  ref={cameraRef} style={[css.cameraView, {width:larguraTela * 0.5, height:500, borderRadius: 5}]} facing="front">
+                    <View style={{justifyContent:"center", alignItems:"center", backgroundColor:"transparent", height:"100%", width:"100%"}}>
+
+                        <CameraView  ref={cameraRef} style={[css.cameraView, {width:larguraTela * 1, height:"100%", justifyContent:"space-between", paddingVertical:50}]} facing="front">
+                        
+                        <View style={{height:"10%", alignItems:"center", justifyContent:"center", width:"100%"}}>
+                            <Text style={{fontWeight:"bold", fontSize:20, backgroundColor:"transparent", width:"100%", color:"black", textAlign:"center", justifyContent:"center", alignItems:"center"}}>Reconhecimento facial para:</Text>
                             
-                            <View style={{borderColor:"white", borderWidth:2, padding:10, borderRadius:200, alignItems:"center", justifyContent:"center"}}>
+                            <Text style={{color:"black", backgroundColor:"transparent", width:"100%", fontSize:23, justifyContent:"center", fontWeight:"bold", textAlign:"center"}}>{token.nome}</Text>
+                        </View>
+                            
+                            <TouchableOpacity onPress={tirarFoto} style={{borderColor:"white", borderWidth:2, padding:15, borderRadius:200, alignItems:"center", justifyContent:"center"}}>
                                 <Image style={{height:75, width:75}} source={cameraIcon}></Image>
-                            </View>
+                            </TouchableOpacity>
 
                         </CameraView> 
 
