@@ -25,7 +25,7 @@ export default function login(){
     
     const [debug, setDebug] = useState(false)
     const router = useRouter()
-    const [user, setUser] = useState('1') 
+    const [user, setUser] = useState('admin') 
     const [senha, setSenha] = useState('123') 
     const [erroLogin, setErroLogin] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -34,7 +34,7 @@ export default function login(){
         setTimeout(() => {
             
             if(loading){setLoading(false)}
-        }, 2500);
+        }, 150);
     })
     
     const tentarLogar = async () => {

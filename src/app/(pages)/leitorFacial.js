@@ -59,7 +59,20 @@ export default function leitorFacial(){
                 id: token.userID
             })
         })
-        const data = await response.json()
+        let data
+
+        try {
+            const text = await response.text()
+
+            // tenta converter pra JSON
+            data = JSON.parse(text)
+
+        } catch (err) {
+            console.log("Resposta não é JSON (provavelmente HTML)")
+
+            // força comportamento de erro
+            data = { match: false }
+        }
         //Só entra nesse if se o reconhecimento for TRUE
         if (data.match) {
             alert(`Rosto identificado, passagem liberada para: ${token.nome}`)

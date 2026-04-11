@@ -20,12 +20,13 @@ import dadosPessoais from '../../assets/dadosPessoais.png'
 import enderecoEContato from '../../assets/enderecoecontato.png'
 import NotaTab from '../../Components/notaTab'
 import notaIcon from '../../assets/anotacoes.png'
+import notinhasIcone from '../../assets/notinhasIcone.png'
 
 
 export default function Perfil(){
 
     const [endereco, setEndereco] = useState()
-    const [token, setToken] = useState()
+    const [token, setToken] = useState(null)
     const [cpf, setCpf] = useState()
     const [dadosAluno, setDadosAluno] = useState()
     const [notas, setNotas] = useState([])
@@ -38,16 +39,20 @@ export default function Perfil(){
             loadToken()
         }, [])
 
-        useEffect(() => {
-            if (token?.userID == '' || token.userID == null){
-                console.log("token vazio")
-                return
+        async function getNotas(){
+                try{
+                const response = await api.get(`/controle/getnotas/${token.userID}`)
+                const toarray = [...response.data]
+                setNotas(toarray)
+                } catch(err){
+                    console.log(err)
+                }
             }
 
-            async function getNotas(){
-                const response = await api.get(`/getnotas/${token.userID}`)
-                console.log(response.data)
-                console.log("notas")
+        useEffect(() => {
+            if (token == null){
+                console.log("token vazio")
+                return
             }
             getNotas()
         },[token])
@@ -62,31 +67,18 @@ export default function Perfil(){
             <View style={[css.quadrado, css.FlexCenter, {justifyContent:"start"}]}>
                 <Header token={token}></Header>
 
-                <ScrollView style={{width:"90%",elevation:8, borderRadius:15, backgroundColor:"white",padding:15 }} contentContainerStyle={[css.FlexCenter,{}]}>
+                <ScrollView style={{width:"90%", borderRadius:15, backgroundColor:"white",padding:15 }} contentContainerStyle={[css.FlexCenter,{}]}>
                     <View style={{backgroundColor:"transparent", width:"100%", height:60, flexDirection:"row", justifyContent:"space-between",}}>
                         <Text style={[css.textoAzul,{fontWeight:"bold", fontSize:30}]}>Anotacoes: </Text>
                         <Image source={notaIcon} style={{height:45, width:45}}></Image>
                     </View>
 
                     <View style={{ width:"100%", }}>
-                        <NotaTab titulo="aids" content="nota 1"></NotaTab>
-                        <NotaTab titulo="drogas"></NotaTab>
-                        <NotaTab titulo="noias"></NotaTab>
-                        <NotaTab titulo="lol"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
-                        <NotaTab titulo="valorant"></NotaTab>
+                        {notas.length > 0 && notas.map((nota) => {
+                            return(
+                                <NotaTab refresh={() => getNotas()} identifier={nota.anotacao_id} key={nota.anotacao_id} titulo={nota.titulo} content={nota.conteudo}/>
+                            )
+                        })}
                     </View>
                 </ScrollView>
             </View>

@@ -67,7 +67,7 @@ export default function home(){
                     </ItemBlock>}
 
                     {/* BOTAO REDIRECIONA PRO LEITOR DE QR */}
-                    <ItemBlock acao={() => router.push("/leitorFacial")}>
+                    <ItemBlock acao={() => router.push("/leitorQrCode")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>

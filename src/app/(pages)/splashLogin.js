@@ -25,7 +25,7 @@ export default function SplashLogin(){
         async function redirect(){
             setTimeout(() => {
                 router.replace("/home")
-            }, 1000);
+            }, 150);
         }
         redirect()
     })

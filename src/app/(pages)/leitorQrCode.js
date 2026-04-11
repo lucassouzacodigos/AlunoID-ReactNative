@@ -91,7 +91,7 @@ export default function leitorQrCode(){
     
 
     
-                    <Botao text="Abrir Camera" largura={120} cor="lightblue" acao={() => setCameraOpen(cur => !cur)} />
+                    <Botao text="Bypass" largura={120} cor="lightblue" acao={() => router.replace("/leitorFacial")} />
                     <Botao text="Tirar Foto" largura={190} cor="lightblue" acao={tirarFoto} />
                     <Text>{token.userID}</Text>
                     <Text>{token.nome}</Text>
