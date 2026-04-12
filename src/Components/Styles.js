@@ -79,6 +79,15 @@ export const css = StyleSheet.create({
     },
     notaTabContent:{
         fontSize:12,
-
+    },
+    horariosContainer:{
+        margin:5,
+        borderBlockColor:"black",
+        borderWidth:1,
+        borderStyle:"solid"
+    },
+    pontoHeaderDiaSemana:{
+        flexDirection:"row",
+        marginVertical:15,
     },
 })

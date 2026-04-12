@@ -84,7 +84,7 @@ export default function home(){
                     </ItemBlock>
 
                         {/* ENTRADA E SAIDA */}
-                    {/* <ItemBlock acao={() => router.push("/entrada_saida")}>
+                    <ItemBlock acao={() => router.push("/entrada_saida")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -97,11 +97,11 @@ export default function home(){
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>
-                    </ItemBlock> */}
+                    </ItemBlock>
 
 
                     {/* BLOCO PERFIL */}
-                    {/* <ItemBlock acao={() => router.push("perfil")}>
+                    <ItemBlock acao={() => router.push("perfil")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -114,7 +114,7 @@ export default function home(){
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>
-                    </ItemBlock> */}
+                    </ItemBlock>
 
                     {/* BOLOCO ANOTACOES */}
                     <ItemBlock acao={() => router.push("Anotacoes")}>
@@ -133,7 +133,7 @@ export default function home(){
                     </ItemBlock>
 
                     {/* BOLOCO HORARIOS */}
-                    <ItemBlock acao={() => router.push("Horarios")}>
+                    {/* <ItemBlock acao={() => router.push("Horarios")}>
                         <View style={[css.FlexCenter, {backgroundColor:"#F5F5F5", height:150, width:"100%", flexDirection:"row", borderRadius:5}]}>
                             
                             <View style={[css.FlexCenter, {backgroundColor:"none", width:"40%"}]}>
@@ -146,7 +146,7 @@ export default function home(){
                                 <Text style={css.textoAcessar}>Clique para acessar</Text>
                             </View>
                         </View>
-                    </ItemBlock>
+                    </ItemBlock> */}
 
 
 
@@ -154,22 +154,8 @@ export default function home(){
 
 
 
-                    <Botao acao={() => router.push("/leitorQrCode")} text="Voltar" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
-                    <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao>
+                    {/* <Botao acao={() => alert(JSON.stringify(token))} text="token" largura={200} cor="#3DC2FF"></Botao> */}
+
                     
                 </ScrollView>
 

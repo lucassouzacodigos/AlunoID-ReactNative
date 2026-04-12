@@ -39,7 +39,6 @@ export default function leitorFacial(){
 }, [])
     const tirarFoto = async () =>{
 
-        setCarregando(true)
         if(!cameraRef.current) return
 
 
@@ -47,6 +46,7 @@ export default function leitorFacial(){
             base64: true
         })
         setFotoUri(foto.uri)
+        setCarregando(true)
         setCameraOpen(false)
 
 
