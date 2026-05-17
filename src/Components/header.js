@@ -48,7 +48,7 @@ export default function Header({token}){
                 <TouchableOpacity onPress={() => router.push("/perfil")} style={{height:50, width:50, position:"absolute", right:15, borderRadius:200}}>
                     <Image 
                         style={{height:50, width:50, borderRadius:200, elevation:10, borderColor:"black", borderWidth:2}}
-                        source={{ uri: `http://${IP}:3333/fotos/${token.nome}/${cpf}.png`}}
+                        source={{ uri: `http://${IP}:3333/fotos/${token.nome}/${token.nome}.png`}}
                     />
                 </TouchableOpacity>
             }

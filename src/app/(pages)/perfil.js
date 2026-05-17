@@ -62,7 +62,7 @@ export default function Perfil(){
                         { //foto de perfil
                             dadosAluno?.cpf && 
                             <Image style={{height:100, width:100, borderRadius:1500, elevation:10, borderColor:"black", borderWidth:2, margin:5}} 
-                            source={{ uri: `http://${IP}:3333/fotos/${token?.nome}/${dadosAluno?.cpf}.png`}}></Image>
+                            source={{ uri: `http://${IP}:3333/fotos/${token?.nome}/${token?.nome}.png`}}></Image>
                         }
                         
                         {/* Textos ao lado da foto */}
